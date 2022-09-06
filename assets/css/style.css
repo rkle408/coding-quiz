@@ -29,3 +29,22 @@ button {
 button::hover {
     cursor: pointer;
 }
+
+/* Would like to style for media query: */
+@media screen and (max-width: 992px) {
+    * {
+        background: white;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    * {
+        background: #61b0b7;
+    }
+}
+  
+  @media screen and (max-width: 576px) {
+    * {
+        background: #16558f;
+    }
+  }
