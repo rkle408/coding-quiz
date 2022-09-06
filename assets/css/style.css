@@ -1,0 +1,30 @@
+* {
+    background-color: #b8e3ff;
+}
+
+body {
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+header {
+    font-size: 50px;
+    padding: 50px;
+}
+
+button {
+    font-size: 30px;
+    justify-content: center;
+    align-items: center;
+    margin: 30px;
+    background-color: #0583d2;
+    color: white;
+    border-radius: 15px;
+    box-shadow: 15px grey;
+    padding: 30px;
+}
+
+/* Add more features later */
+button::hover {
+    cursor: pointer;
+}
