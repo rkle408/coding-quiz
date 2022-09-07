@@ -11,12 +11,43 @@
 
     <body>
         <header>
-            <section class="quiz-name">JavaScript Coding Quiz</section>
+            <h1>JavaScript Coding Quiz</h1>
+                <p class="introduction">Test your knowledge of JavaScript by answering these questions within the set time limit!</p>
             <button class="start-button">Start the Quiz!</button>
         </header>
 
         <main>
+            <section class="card quiz">
+                <section class="questions"></section>
+                    <ol>
+                        <li><button class="answers" id="choice-1"></button></li>
+                        <li><button class="answers" id="choice-2"></button></li>
+                        <li><button class="answers" id="choice-3"></button></li>
+                        <li><button class="answers" id="choice-4"></button></li>
+                    </ol>
+            </section>
             
+            <section class="card timer">
+                <section class="timer-text"></section>
+            </section>
+
+            <section class="card results">
+                <section class="final-score"></section>
+                                <!--Need to style this later-->
+                <label for="initials">Your Initials: </label>
+                <input type="text" id="initials">
+                <input class="submit-button" type="submit">
+            </section>
+
+            <section class="high-scores">
+                <ol >
+                    <li></li>
+                </ol>
+                <button class="go-back">Go Back</button>
+                <button class="clear-scores">Clear Scores</button>
+            </section>
+            
+
         </main>
     
         <script src="./assets/js/script.js"></script>

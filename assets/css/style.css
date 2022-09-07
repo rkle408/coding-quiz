@@ -1,36 +1,61 @@
 * {
     background-color: #b8e3ff;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 body {
     text-align: center;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.quiz-name {
-    font-size: 50px;
+h1 {
+    font-size: 55px;
     font-weight: bold;
-    padding: 50px;
+    padding: 50px 10px 20px 10px;
+}
+
+p,
+label {
+    font-size: 25px;
+    padding: 5px;
 }
 
 button {
-    font-size: 30px;
+    font-size: 20px;
     justify-content: center;
     align-items: center;
-    margin: 30px;
+    margin: 20px;
     background-color: #0583d2;
     color: white;
-    border-radius: 15px;
-    box-shadow: 15px grey;
-    padding: 30px;
+    border-radius: 50px;
+    box-shadow: 0px 0px 4px 4px #15668f;
+    padding: 15px;
 }
 
 /* Add more features later */
-button::hover {
+button:hover {
     cursor: pointer;
 }
 
-/* Would like to style for media query: */
+button:focus {
+    outline-style: solid;
+    outline-color: white;
+}
+
+.start-button {
+    font-size: 35px;
+}
+
+.submit-button {
+    font-size: 18px;
+}
+
+.card {
+    font-size: 30px;
+    font-weight: bold;
+    padding: 30px;
+}
+
+/* Would like to style for media query -- will add details later: */
 @media screen and (max-width: 992px) {
     * {
         background: white;
