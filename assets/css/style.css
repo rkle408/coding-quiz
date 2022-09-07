@@ -19,8 +19,9 @@ label {
     padding: 10px;
 }
 
+/* Add more features later */
 button {
-    font-size: 20px;
+    font-size: 23px;
     justify-content: center;
     align-items: center;
     margin: 20px;
@@ -28,12 +29,13 @@ button {
     color: white;
     border-radius: 50px;
     box-shadow: 0px 0px 4px 4px #15668f;
-    padding: 15px;
+    padding: 11px;
+    cursor: pointer;
 }
 
-/* Add more features later */
 button:hover {
-    cursor: pointer;
+    background-color: yellow;
+    transition: 0.6s;
 }
 
 button:focus {
@@ -59,11 +61,9 @@ button:focus {
 .quiz section,
 .results section,
 .player {
-    background-color: white;
     padding: 10px;
 }
 
-.answer-list .answer,
 .submit-button {
     font-size: 23px;
     background: lightblue;
@@ -73,14 +73,10 @@ button:focus {
     cursor: pointer;
 }
 
-.answer:hover {
-    background-color: yellow;
-    transition: 0.6s;
-}
 
 /* Hide things until clicked on */
-
-.quiz,
+.results,
+/* .quiz */
 .high-scores {
     display: none;
 }
