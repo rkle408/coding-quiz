@@ -55,6 +55,14 @@ button:focus {
     padding: 30px;
 }
 
+/* Hide things until clicked on */
+.quiz,
+.timer,
+.results,
+.high-scores {
+    display: none;
+}
+
 /* Would like to style for media query -- will add details later: */
 @media screen and (max-width: 992px) {
     * {
