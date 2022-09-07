@@ -15,8 +15,8 @@ h1 {
 
 p,
 label {
-    font-size: 25px;
-    padding: 5px;
+    font-size: 23px;
+    padding: 10px;
 }
 
 button {
@@ -49,24 +49,36 @@ button:focus {
     font-size: 18px;
 }
 
+/* Check this later */
 .card {
     font-size: 30px;
     font-weight: bold;
     padding: 30px;
 }
 
+.quiz section {
+    background-color: white;
+    padding: 17px;
+}
+
 /* Hide things until clicked on */
-.quiz,
-.timer,
+
 .results,
 .high-scores {
     display: none;
 }
 
+.timer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
 /* Would like to style for media query -- will add details later: */
 @media screen and (max-width: 992px) {
     * {
-        background: white;
+        background: cadetblue;
     }
 }
 
