@@ -58,7 +58,21 @@ button:focus {
 
 .quiz section {
     background-color: white;
-    padding: 17px;
+    padding: 10px;
+}
+
+.answer-list .answer {
+    font-size: 23px;
+    background: lightblue;
+    border: 2px solid grey;
+    margin-bottom: 15px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.answer:hover {
+    background-color: yellow;
+    transition: 0.6s;
 }
 
 /* Hide things until clicked on */
@@ -66,13 +80,6 @@ button:focus {
 .results,
 .high-scores {
     display: none;
-}
-
-.timer {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-evenly;
 }
 
 /* Would like to style for media query -- will add details later: */
