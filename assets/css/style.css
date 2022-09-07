@@ -56,12 +56,15 @@ button:focus {
     padding: 30px;
 }
 
-.quiz section {
+.quiz section,
+.results section,
+.player {
     background-color: white;
     padding: 10px;
 }
 
-.answer-list .answer {
+.answer-list .answer,
+.submit-button {
     font-size: 23px;
     background: lightblue;
     border: 2px solid grey;
@@ -77,7 +80,7 @@ button:focus {
 
 /* Hide things until clicked on */
 
-.results,
+.quiz,
 .high-scores {
     display: none;
 }
