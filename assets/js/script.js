@@ -1,6 +1,7 @@
 var startButton = document.querySelector(".start-button");
 var timerElement = document.querySelector(".timer");
-var quizElement = document.querySelector("#questions");
+var quizElement = document.querySelector("#quiz");
+var resultsElement = document.querySelector("#results");
 
 var timer;
 var timerCount = 80;
@@ -8,8 +9,8 @@ var score = 0;
 
 // Need functions to:
 // start button to... (done)
-// start game to...
-// start timer and...
+// start game to and (done)
+// start timer and... (half done)
 // start questions,
 // submit initials leads to high scores page
 
@@ -100,8 +101,11 @@ function startTimer() {
         }
     }, 1000);
     // Need to subtract 10 seconds if wrong answer!!!
+    // Need to stop timer at 0 too.
 }
 
-// Declare startQuiz function!
+
+
+// Declare startQuiz and startTimer functions!
 startButton.addEventListener("click", startQuiz);
 startButton.addEventListener("click", startTimer);
