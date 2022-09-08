@@ -3,6 +3,13 @@
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
+nav {
+    text-align: right;
+    font-size: 25px;
+    padding: 7px;
+    font-weight: bold;
+}
+
 body {
     text-align: center;
 }
