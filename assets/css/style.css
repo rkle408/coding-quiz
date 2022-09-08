@@ -56,16 +56,6 @@ button:focus {
     font-size: 18px;
 }
 
-.quiz-container {
-    max-width: 900px;
-    display: flex;
-    padding: 5px;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    height: fit-content;
-}
-
 /* Check this later */
 .card {
     font-size: 30px;
@@ -73,7 +63,6 @@ button:focus {
     padding: 30px;
 }
 
-.quiz-container,
 .results section,
 .player {
     padding: 10px;
@@ -90,11 +79,11 @@ button:focus {
 
 
 /* Hide things until clicked on */
-.results,
+/*.results, */
 /* .quiz */
-.high-scores {
+/*.high-scores {
     display: none;
-}
+} */
 
 /* Would like to style for media query -- will add details later: */
 @media screen and (max-width: 992px) {

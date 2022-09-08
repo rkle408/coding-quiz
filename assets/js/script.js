@@ -5,6 +5,22 @@ var timerElement = document.querySelector(".timer");
 
 var timer;
 var timerCount;
+var score =0;
+
+// Need functions to:
+// start game
+// start timer
+// start questions
+
+// Need style to hide:
+// start button
+// questions
+// end of quiz
+
+// Will need a for-loop later...
+//for (var i=0; i < quizQuestions.length; i++); {
+    
+//}
 
 // Will probablly need more variables as we go
 
