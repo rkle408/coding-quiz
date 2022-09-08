@@ -88,15 +88,20 @@ function startQuiz() {
 
     // Now you want timer and quiz to start:
     quizElement.removeAttribute("class");
-
-//    timerCount;
-//    startButton.disabled = true;
-//    startTimer();
 }
 
-//function startTimer() {
-
-//}
+function startTimer() {
+    var timerInterval = setInterval(function() {
+        timerCount--;
+        timerElement.textContent = "Your Time Left: " + timerCount;
+      
+        if(secondsLeft === 0) {
+        clearInterval(timerInterval);
+        }
+    }, 1000);
+    // Need to subtract 10 seconds if wrong answer!!!
+}
 
 // Declare startQuiz function!
 startButton.addEventListener("click", startQuiz);
+startButton.addEventListener("click", startTimer);
