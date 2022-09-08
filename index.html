@@ -17,41 +17,35 @@
         </header>
 
         <main>
-            <h1 class="card">Coding Quiz</h1>
-            <p class="introduction">Test your knowledge of JavaScript by answering these questions within the set time limit!</p>
-            <p>If you get an answer wrong, you will get a 10 second time deduction.</p>
+            <section id="introduction">
+                <h1 class="card">Coding Quiz</h1>
+                <p>Test your knowledge of coding by answering these questions within the set time limit!</p>
+                <p>If you get an answer wrong, you will get a 10 second time deduction.
+                <br>You will only get one chance to answer each question.
+                </p>
                 <button class="start-button">Start the Quiz!</button>
-
-            <section class="quiz-container" id="quiz">
-                <h2 class="questions">Questions</h2>
-                    <ol>
-                        <li><button class="answers" id="1">Answer</button></li>
-                        <li><button class="answers" id="2">Answer</button></li>
-                        <li><button class="answers" id="3">Answer</button></li>
-                        <li><button class="answers" id="4">Answer</button></li>
-                    </ol>
             </section>
 
-            <section class="card results">
-                <section class="final-score"></section>
-                    <section class="finished-quiz">Congratulations, you finished the quiz!</section>
-                    <section class="score-text">Your final score is:</section>
-                    <section class="score"></section>
+            <section class="hide" id="quiz">
+                <h2 class="questions">Questions</h2>
+                <section id="answer-choices"></section>
+            </section>
+
+            <section class="hide" id="results">
+                <section class="finished-quiz">Congratulations, you finished the quiz!</section>
+                <section class="score-text">Your final score is:</section>
+                <section class="score"></section>
                 
-                    <section class="player">
-                        <label for="initials">Your Initials: </label>
-                        <input type="text" id="initials">
-                        <input class="submit-button" type="submit">
-                    </section>
+                <section class="player">
+                <label for="initials">Your Initials: </label>
+                <input type="text" id="initials"/>
+                <input class="submit-button" type="submit">
             </section>
 
             <section class="high-scores">
-
                 <button class="go-back">Go Back</button>
                 <button class="clear-scores">Clear Scores</button>
             </section>
-            
-
         </main>
     
         <script src="./assets/js/script.js"></script>

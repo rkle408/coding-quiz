@@ -11,6 +11,7 @@ var score =0;
 // start game
 // start timer
 // start questions
+// submit initials leads to high scores page
 
 // Need style to hide:
 // start button
