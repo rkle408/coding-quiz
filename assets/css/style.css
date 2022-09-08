@@ -34,7 +34,7 @@ label {
 
 /* Add more features later */
 button {
-    font-size: 23px;
+    font-size: 20px;
     justify-content: center;
     align-items: center;
     margin: 20px;
@@ -60,38 +60,14 @@ button:focus {
     font-size: 35px;
 }
 
-.submit-button {
-    font-size: 18px;
-}
-
-/* Check this later */
-.card {
-    font-size: 30px;
-    font-weight: bold;
-    padding: 30px;
-}
-
-.results section,
 .player {
     padding: 10px;
 }
 
-.submit-button {
-    font-size: 23px;
-    background: lightblue;
-    border: 2px solid grey;
-    margin-bottom: 15px;
-    border-radius: 15px;
-    cursor: pointer;
-}
-
-
 /* Hide things until clicked on */
-/*.results, */
-/* .quiz */
-/*.high-scores {
+.hide {
     display: none;
-} */
+}
 
 /* Would like to style for media query -- will add details later: */
 @media screen and (max-width: 992px) {
