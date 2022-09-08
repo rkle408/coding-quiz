@@ -2,16 +2,19 @@ var startButton = document.querySelector(".start-button");
 var timerElement = document.querySelector(".timer");
 var quizElement = document.querySelector("#quiz");
 var resultsElement = document.querySelector("#results");
+var answerChoiceElement = document.querySelector("#answer-choices");
 
 var timer;
 var timerCount = 80;
 var score = 0;
+var displayingQuestionIndex = 0;
+var displayingAnswerIndex = 0;
 
 // Need functions to:
 // start button to... (done)
 // start game to and (done)
 // start timer and... (half done)
-// start questions,
+// start questions, (half done)
 // submit initials leads to high scores page
 
 // Need style to hide:
@@ -27,54 +30,37 @@ var score = 0;
 // Will probablly need more variables as we go
 
 // Quiz Questions
+// Needed to change answerChoice to array to check answers more easily
 var quizQuestions = [
     {
         question: "What are functions inside of objects called?",
-        1: "Events",
-        2: "Strings",
-        3: "Methods",
-        4: "Event listeners",
-        correct: "3",
+        answerChoice: ["Events", "Strings", "Methods", "Event listeners"],
+        correct: "Methods",
     },
     {
         question: "Which naming convention do we use for CSS?",
-        1: "PascalCase",
-        2: "camelCase",
-        3: "snake_case",
-        4: "kebab-case",
-        correct: "4",
+        answerChoice: ["PascalCase", "camelCase", "snake_case", "kebab-case"],
+        correct: "kebab-case",
     },
     {
         question: "In our HTML, where do we link our CSS and Javascript?",
-        1: "CSS = top, Javascript = top",
-        2: "CSS = top, Javascript = bottom",
-        3: "CSS = bottom, Javascript = top",
-        4: "CSS = bottom, Javascript = bottom",
-        correct: "2",
+        answerChoice: ["CSS = top, Javascript = top", "CSS = top, Javascript = bottom", "CSS = bottom, Javascript = top", "CSS = bottom, Javascript = bottom"],
+        correct: "CSS = top, Javascript = bottom",
     }, 
     {
         question: "Which operator gives us A is not equal to B in type and value?",
-        1: "console.log(A !== B);",
-        2: "console.log(A != B);",
-        3: "console.log(A /= B);",
-        4: "console.log(A || B);",
-        correct: "1",
+        answerChoice: ["console.log(A !== B);", "console.log(A != B);", "console.log(A /= B);", "console.log(A || B);"],
+        correct: "console.log(A !== B);",
     },
     {
         question: "How do we stop a page from refreshing when a form is submitted?",
-        1: "addEventListener('click', stopRefresh);",
-        2: "event.stopPropagation();",
-        3: "event.setAttribute('refresh', 'stop refresh');",
-        4: "event.preventDefault();",
-        correct: "4",
+        answerChoice: ["addEventListener('click', stopRefresh);", "event.stopPropagation();", "event.setAttribute('refresh', 'stop refresh');", "event.preventDefault();"],
+        correct: "event.preventDefault();",
     },
     {
         question: "Arrays start at what index?",
-        1: "One",
-        2: "Zero",
-        3: "Whatever variable you set it to be",
-        4: "They're not indexed",
-        correct: "2",
+        answerChoice: ["One", "Zero", "Whatever variable you set it to be", "They're not indexed"],
+        correct: "Zero",
     },
 ]
 
@@ -89,6 +75,13 @@ function startQuiz() {
 
     // Now you want timer and quiz to start:
     quizElement.removeAttribute("class");
+
+    var displayingQuestion = quizQuestions[displayingQuestionIndex];
+    var questionTitle = document.querySelector(".questions");
+        questionTitle.textContent = displayingQuestion["question"];
+    
+    // Need answer choices
+        answerChoiceElement.textContent = quizQuestions[answerChoice];
 }
 
 function startTimer() {
@@ -96,12 +89,11 @@ function startTimer() {
         timerCount--;
         timerElement.textContent = "Your Time Left: " + timerCount;
       
-        if(secondsLeft === 0) {
+        if(timerCount === 0) {
         clearInterval(timerInterval);
         }
     }, 1000);
     // Need to subtract 10 seconds if wrong answer!!!
-    // Need to stop timer at 0 too.
 }
 
 
