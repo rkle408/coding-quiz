@@ -20,7 +20,8 @@ h1 {
     padding: 50px 10px 20px 10px;
 }
 
-h2 {
+h2,
+h3 {
     font-size: 25px;
     font-weight: bold;
 }
@@ -67,6 +68,10 @@ button:focus {
 /* Hide things until clicked on */
 .hide {
     display: none;
+}
+
+#answer-choices {
+    font-size: 23px;
 }
 
 /* Would like to style for media query -- will add details later: */

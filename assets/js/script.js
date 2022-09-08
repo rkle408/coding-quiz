@@ -1,16 +1,16 @@
 var startButton = document.querySelector(".start-button");
-var goBackButton = document.querySelector(".go-back");
-var clearButton = document.querySelector(".clear-scores");
 var timerElement = document.querySelector(".timer");
+var questionElement = document.querySelector(".questions");
 
 var timer;
-var timerCount;
-var score =0;
+var timerCount = quizQuestions.length * 1.5;
+var score = 0;
 
 // Need functions to:
-// start game
-// start timer
-// start questions
+// start button to...
+// start game to...
+// start timer and...
+// start questions,
 // submit initials leads to high scores page
 
 // Need style to hide:
@@ -79,7 +79,10 @@ var quizQuestions = [
 
 // Need a start function for when we click the start button for the quiz and timers to start
 function startQuiz() {
-    timerCount = 80;
+    timerCount;
     startButton.disabled = true;
     startTimer();
 }
+
+// Declare startQuiz function!
+startButton.addEventListener("click", startQuiz);
