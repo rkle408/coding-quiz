@@ -1,13 +1,13 @@
 var startButton = document.querySelector(".start-button");
 var timerElement = document.querySelector(".timer");
-var questionElement = document.querySelector(".questions");
+var quizElement = document.querySelector("#questions");
 
 var timer;
-var timerCount = quizQuestions.length * 1.5;
+var timerCount = 80;
 var score = 0;
 
 // Need functions to:
-// start button to...
+// start button to... (done)
 // start game to...
 // start timer and...
 // start questions,
@@ -79,10 +79,24 @@ var quizQuestions = [
 
 // Need a start function for when we click the start button for the quiz and timers to start
 function startQuiz() {
-    timerCount;
-    startButton.disabled = true;
-    startTimer();
+    // Always console.log or alert to test connection to HTML!:
+    // console.log("hello!");
+    
+    // When quiz starts, intro should disappear then questions should pop up in it's place:
+    var introElement = document.querySelector("#introduction");
+    introElement.setAttribute("class", "hide");
+
+    // Now you want timer and quiz to start:
+    quizElement.removeAttribute("class");
+
+//    timerCount;
+//    startButton.disabled = true;
+//    startTimer();
 }
+
+//function startTimer() {
+
+//}
 
 // Declare startQuiz function!
 startButton.addEventListener("click", startQuiz);
