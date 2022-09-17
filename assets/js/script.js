@@ -81,8 +81,9 @@ function startQuiz() {
     var displayingQuestion = quizQuestions[displayingQuestionIndex];
     questionEl.textContent = displayingQuestion["question"];
     answers.innerHTML = "";
+    console.log(displayingQuestion);
 
-    for (var index = 0; index < displayingQuestion["answerChoice"].length; index++); {
+    for (var index = 0; index < displayingQuestion["answerChoice"].length; index++) {
         var userAnswer = displayingQuestion["answerChoice"][index];
         var userAnswerBtn = document.createElement("button");
         userAnswerBtn.setAttribute("class", "answer");
