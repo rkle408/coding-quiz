@@ -79,7 +79,7 @@ function startQuiz() {
         userAnswerBtn.setAttribute("class", "answer");
         userAnswerBtn.setAttribute("value", userAnswer);
         userAnswerBtn.textContent = `${index + 1}. ${userAnswer}`
-        answerChoiceElement.append(userAnswerBtn);
+        answerChoiceElement.appendChild(userAnswerBtn);
         };
 }
 

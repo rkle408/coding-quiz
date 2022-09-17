@@ -19,8 +19,9 @@ var introduction = document.querySelector("#introduction");
 var startButton = document.querySelector(".start-button");
 
 var quizEl = document.querySelector("#quiz");
-var question = document.querySelector(".questions");
+var questionEl = document.querySelector(".questions");
 var answers = document.querySelector(".answers");
+var displayingQuestionIndex = 0;
 
 // Quiz Questions
 var quizQuestions = [
@@ -75,7 +76,20 @@ function startTimer() {
 
 function startQuiz() {
     introduction.setAttribute("class", "hide");
+    quizEl.removeAttribute("class", "hide");
 
+    var displayingQuestion = quizQuestions[displayingQuestionIndex];
+    questionEl.textContent = displayingQuestion["question"];
+    answers.innerHTML = "";
+
+    for (var index = 0; index < displayingQuestion["answerChoice"].length; index++); {
+        var userAnswer = displayingQuestion["answerChoice"][index];
+        var userAnswerBtn = document.createElement("button");
+        userAnswerBtn.setAttribute("class", "answer");
+        userAnswerBtn.setAttribute("value", userAnswer);
+        userAnswerBtn.textContent = `${index + 1}. ${userAnswer}`
+        answers.append(userAnswerBtn);
+        };
 }
 
 // When clicking start button, quiz and timer will start:
