@@ -73,7 +73,7 @@ function startTimer() {
         clearInterval(timerInterval);
         introduction.setAttribute("class", "hide");
         quizEl.setAttribute("class", "hide");
-        answerChoiceElement.setAttribute("class", "hide");
+        answers.setAttribute("class", "hide");
         resultsElement.removeAttribute("class", "hide");
         }
     }, 1000);
@@ -82,19 +82,26 @@ function startTimer() {
 function startQuiz() {
     introduction.setAttribute("class", "hide");
     quizEl.removeAttribute("class", "hide");
+    startTimer();
+    displayQuestion();
 
+
+}
+
+// Want to do a separate function to display the questions so that the next one will appear after you answer one:
+function displayQuestion() {
     var displayingQuestion = quizQuestions[currentIndex];
     questionEl.textContent = displayingQuestion["question"];
     answers.innerHTML = "";
     console.log(displayingQuestion);
 
     // With this for-loop, can have as many options without adding more code for more buttons
-    for (var index = 0; index < displayingQuestion["answerChoice"].length; index++) {
-        var userAnswer = displayingQuestion["answerChoice"][index];
+    for (let i = 0; i < displayingQuestion["answerChoice"].length; i++) {
+        var userAnswer = displayingQuestion["answerChoice"][i];
         var userAnswerBtn = document.createElement("button");
         userAnswerBtn.setAttribute("class", "answer");
-        userAnswerBtn.setAttribute("data-index", index);
-        userAnswerBtn.textContent = `${index + 1}. ${userAnswer}`
+        userAnswerBtn.setAttribute("data-index", i);
+        userAnswerBtn.textContent = `${i + 1}. ${userAnswer}`
         userAnswerBtn.addEventListener('click', choiceClickHandler)
         answers.append(userAnswerBtn);
         };
@@ -105,7 +112,7 @@ function startQuiz() {
 function choiceClickHandler (event) {
     console.log(event.target.dataset.index);
     // want to check
-    if (quizQuestions[currentIndex].correctIndex === event.target.dataset.index){
+    if (quizQuestions[currentIndex].correctIndex == event.target.dataset.index){
         console.log('correct answer');
     } else {
         console.log('wrong choice')
@@ -113,9 +120,12 @@ function choiceClickHandler (event) {
         // Check remaining time, if it is <= 0, then end the quiz 
     }
     // Display next question
+    currentIndex++;
+    if (currentIndex >= quizQuestions.length) {
     // If there are no more questions, then end quiz and display high scores
+    }
+    displayQuestion();
 }
 
 // When clicking start button, quiz and timer will start:
 startButton.addEventListener("click", startQuiz);
-startButton.addEventListener("click", startTimer);
