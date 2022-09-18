@@ -90,6 +90,7 @@ function startQuiz() {
     quizEl.removeAttribute("class", "hide");
     startTimer();
     displayQuestion();
+
 }
 
 // Want to do a separate function to display the questions so that the next one will appear after you answer one:
@@ -98,6 +99,7 @@ function displayQuestion() {
     questionEl.textContent = displayingQuestion["question"];
     answers.innerHTML = "";
     console.log(displayingQuestion);
+    endBtn.removeAttribute("class", "hide");
 
     // With this for-loop, can have as many options without adding more code for more buttons
     for (let i = 0; i < displayingQuestion["answerChoice"].length; i++) {
