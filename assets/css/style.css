@@ -79,6 +79,12 @@ button:focus {
     font-size: 23px;
 }
 
+input {
+    border: 3px solid black;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
 /* Would like to style for media query -- will add details later: */
 @media screen and (max-width: 992px) {
     * {

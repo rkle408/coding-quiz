@@ -12,8 +12,9 @@
 // When quiz ends, results need to appear
 
 var timerEl = document.querySelector(".timer");
-var timerCount = 20;
+var timerCount = 60;
 var timer;
+var timerInterval = null;
 
 var introduction = document.querySelector("#introduction");
 var startButton = document.querySelector(".start-button");
@@ -69,12 +70,11 @@ var quizQuestions = [
 ]
 
 function startTimer() {
-    var timerInterval = setInterval(function() {
+    timerInterval = setInterval(function() {
         timerCount--;
         timerEl.textContent = "Your Time Left: " + timerCount;
       
         if(timerCount <= 0) {
-        clearInterval(timerInterval);
         endQuiz();
         }
     }, 1000);
@@ -113,26 +113,35 @@ function choiceClickHandler (event) {
     if (quizQuestions[currentIndex].correctIndex == event.target.dataset.index){
         console.log('correct answer');
     } else {
-        console.log('wrong choice')
+        console.log('wrong choice');
         // When get to answer choice: Need to subtract 10 seconds if wrong answer!!!
+        timerCount -=10;
         // Check remaining time, if it is <= 0, then end the quiz 
+    if (timerCount <= 0) {
+        endQuiz();
+        return;
+        }
     }
     // Display next question
     currentIndex++;
-    if (currentIndex >= quizQuestions.length) {
-    // If there are no more questions, then end quiz and
-    // display and store high scores
-    
+    if (currentIndex >= quizQuestions.length) { 
     return;
     }
     displayQuestion();
+
+    if (quizQuestions[currentIndex] = 0) {
+        endQuiz();
+    }
 }
 
 // Make a separate function to end quiz since there are many different cases where we would want to end the quiz
 function endQuiz (){
     introduction.setAttribute("class", "hide");
     quizEl.setAttribute("class", "hide");
+    clearInterval(timerInterval);
+    timerEl.textContent = "Your time is up!"
     resultsElement.removeAttribute("class", "hide");
+        // display and store high scores
 }
 
 // When clicking start button, quiz and timer will start:
