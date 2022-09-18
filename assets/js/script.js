@@ -26,6 +26,8 @@ var currentIndex = 0;
 
 var resultsElement = document.querySelector('#results');
 var highScores = document.querySelector('#high-scores');
+var highScoresBtn = document.querySelector('#highScoreButton');
+var highScoreText =document.querySelector('#high-score-text');
 var scoreEl = document.querySelector("#score");
 var score = 0;
 var initialsEl = document.querySelector("#initials");
@@ -87,6 +89,7 @@ function startTimer() {
 
 function startQuiz() {
     introduction.setAttribute("class", "hide");
+    highScores.setAttribute("class", "hide");
     quizEl.removeAttribute("class", "hide");
     startTimer();
     displayQuestion();
@@ -149,7 +152,7 @@ submitBtn.addEventListener("click", function(){
     
     console.log(initials);
 
-    //highScores.textContent = "Initials: "+ initials + "Score: "+ scoreStore;
+    highScoreText.textContent = "Initials: "+ initials + " with a score of "+ scoreStore;
 })
 
 
@@ -170,3 +173,14 @@ function endQuiz (){
 // When clicking start button, quiz and timer will start:
 startButton.addEventListener("click", startQuiz);
 endBtn.addEventListener("click", endQuiz);
+highScoresBtn.addEventListener("click", showScore);
+
+function showScore (){
+    introduction.setAttribute("class", "hide");
+    quizEl.setAttribute("class", "hide");
+    clearInterval(timerInterval);
+    timerEl.textContent = "Your time is up!"
+    resultsElement.setAttribute("class", "hide");
+    endBtn.setAttribute("class", "hide");
+    highScores.removeAttribute("class", "hide");
+}

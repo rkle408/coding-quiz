@@ -12,7 +12,7 @@
     <body>
         <header>
             <nav class="nav">
-                <a href="./highscores.html">Click here to view High Scores</a>
+                <button href="#high-scores" id="highScoreButton">Click here to view High Scores</button>
                 <p class="timer">Your Time Left: <span id="timer-count">0</span></p>
             </nav>
         </header>
@@ -42,6 +42,11 @@
                 <input type="text" id="initials"/>
                 <button class="submit-button" type="submit">Submit</button>
                 </span>
+            </section>
+
+            <section class="hide" id="high-scores" >
+                <h2>High Scores</h2>
+                <p id="high-score-text"></p>
             </section>
 
             <button id="end-quiz" class="hide">End Quiz</button>
