@@ -31,6 +31,8 @@ var score = 0;
 var initialsEl = document.querySelector("#initials");
 var submitBtn = document.querySelector(".submit-button");
 
+var endBtn = document.querySelector("#end-quiz");
+
 // Quiz Questions
 var quizQuestions = [
     {
@@ -142,9 +144,9 @@ submitBtn.addEventListener("click", function(){
     localStorage.setItem("Initials", initialsEl.value);
     localStorage.setItem("Score", score);
 
-    var scoreList = document.createElement("li");
-    scoreList.textContent = initials + " = " + scoreStore;
-    highScores.append(scoreList);
+    // var scoreList = document.createElement("li");
+    // scoreList.textContent = initials + " = " + scoreStore;
+    // highScores.append(scoreList);
 })
 
 
@@ -158,7 +160,9 @@ function endQuiz (){
     // Display and store high scores
     //console.log(score);
     scoreEl.textContent = score;
+    endBtn.setAttribute("class", "hide");
 }
 
 // When clicking start button, quiz and timer will start:
 startButton.addEventListener("click", startQuiz);
+endBtn.addEventListener("click", endQuiz);

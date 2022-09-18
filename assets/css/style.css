@@ -85,6 +85,10 @@ input {
     font-size: 15px;
 }
 
+#end-quiz {
+    margin-top: 150px;
+}
+
 /* Would like to style for media query -- will add details later: */
 @media screen and (max-width: 992px) {
     * {
