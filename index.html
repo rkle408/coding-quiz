@@ -12,7 +12,8 @@
     <body>
         <header>
             <nav class="nav">
-                <section class="timer">Your Time Left: <span id="timer-count">0</span></section>
+                <a href="/highscores.html">Click here to view High Scores</a>
+                <p class="timer">Your Time Left: <span id="timer-count">0</span></p>
             </nav>
         </header>
 
@@ -32,17 +33,14 @@
             </section>
 
             <section class="hide" id="results">
-                <section id="finished-quiz">Congratulations, you finished the quiz!</section>
-                <section id="score-text">Your final score is: <span id="score"></span></section>
+                <!-- Can change these sections into p -->
+                <p id="finished-quiz">Congratulations, you finished the quiz!</p>
+                <p id="score-text">Your final score is: <span id="score"></span></p
                 
                 <section class="player">
                 <label for="initials">Your Initials: </label>
                 <input type="text" id="initials"/>
                 <button class="submit-button" type="submit">Submit</button>
-            </section>
-
-            <section class="hide">
-                <h3 id="high-scores"></h3>
             </section>
 
         </main>
