@@ -79,7 +79,7 @@ function startTimer() {
         timerCount--;
         timerEl.textContent = "Your Time Left: " + timerCount;
       
-        if(timerCount <= 0) {
+        if(timerCount <= 0  || currentIndex === quizQuestions.length) {
         endQuiz();
         }
     }, 1000);
@@ -90,7 +90,6 @@ function startQuiz() {
     quizEl.removeAttribute("class", "hide");
     startTimer();
     displayQuestion();
-
 }
 
 // Want to do a separate function to display the questions so that the next one will appear after you answer one:
@@ -139,17 +138,20 @@ function choiceClickHandler (event) {
     displayQuestion();
 }
 
-var initials = localStorage.getItem("Initials");
-var scoreStore = localStorage.getItem("Score");
+
 
 submitBtn.addEventListener("click", function(){
     localStorage.setItem("Initials", initialsEl.value);
     localStorage.setItem("Score", score);
+    
+    var initials = localStorage.getItem("Initials");
+    var scoreStore = localStorage.getItem("Score");
+    
+    console.log(initials);
 
-    // var scoreList = document.createElement("li");
-    // scoreList.textContent = initials + " = " + scoreStore;
-    // highScores.append(scoreList);
+    //highScores.textContent = "Initials: "+ initials + "Score: "+ scoreStore;
 })
+
 
 
 // Make a separate function to end quiz since there are many different cases where we would want to end the quiz
