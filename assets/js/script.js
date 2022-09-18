@@ -12,7 +12,7 @@
 // When quiz ends, results need to appear
 
 var timerEl = document.querySelector(".timer");
-var timerCount = 80;
+var timerCount = 20;
 var timer;
 
 var introduction = document.querySelector("#introduction");
@@ -22,6 +22,10 @@ var quizEl = document.querySelector("#quiz");
 var questionEl = document.querySelector(".questions");
 var answers = document.querySelector(".answers");
 var currentIndex = 0;
+
+var resultsElement = document.querySelector('#results');
+var highScores = document.querySelector('#high-scores');
+var score = document.querySelector("#score");
 
 // Quiz Questions
 var quizQuestions = [
@@ -71,10 +75,7 @@ function startTimer() {
       
         if(timerCount <= 0) {
         clearInterval(timerInterval);
-        introduction.setAttribute("class", "hide");
-        quizEl.setAttribute("class", "hide");
-        answers.setAttribute("class", "hide");
-        resultsElement.removeAttribute("class", "hide");
+        endQuiz();
         }
     }, 1000);
 }
@@ -84,8 +85,6 @@ function startQuiz() {
     quizEl.removeAttribute("class", "hide");
     startTimer();
     displayQuestion();
-
-
 }
 
 // Want to do a separate function to display the questions so that the next one will appear after you answer one:
@@ -107,7 +106,6 @@ function displayQuestion() {
         };
 }
 
-// Guidance notes:
 // Need to do event.target
 function choiceClickHandler (event) {
     console.log(event.target.dataset.index);
@@ -122,9 +120,19 @@ function choiceClickHandler (event) {
     // Display next question
     currentIndex++;
     if (currentIndex >= quizQuestions.length) {
-    // If there are no more questions, then end quiz and display high scores
+    // If there are no more questions, then end quiz and
+    // display and store high scores
+    
+    return;
     }
     displayQuestion();
+}
+
+// Make a separate function to end quiz since there are many different cases where we would want to end the quiz
+function endQuiz (){
+    introduction.setAttribute("class", "hide");
+    quizEl.setAttribute("class", "hide");
+    resultsElement.removeAttribute("class", "hide");
 }
 
 // When clicking start button, quiz and timer will start:
