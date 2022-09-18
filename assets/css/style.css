@@ -82,11 +82,22 @@ button:focus {
 input {
     border: 3px solid black;
     border-radius: 5px;
-    font-size: 15px;
+    font-size: 30px;
+    background-color: aliceblue;
 }
 
 #end-quiz {
     margin-top: 150px;
+}
+
+h3 {
+    text-decoration: underline;
+}
+
+#high-scores p {
+    margin: 15px;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 /* Would like to style for media query -- will add details later: */

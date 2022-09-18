@@ -140,7 +140,6 @@ function choiceClickHandler (event) {
     displayQuestion();
 }
 
-
 // Make a separate function to end quiz since there are many different cases where we would want to end the quiz
 function endQuiz (){
     introduction.setAttribute("class", "hide");
@@ -160,6 +159,25 @@ endBtn.addEventListener("click", endQuiz);
 //highScoresBtn.addEventListener("click", showScore);
 submitBtn.addEventListener("click", store);
 
+// Store to local storage, so can display on Scores page
+function store() {
+    localStorage.setItem("Initials", JSON.stringify(initialsEl.value));
+    localStorage.setItem("Score", JSON.stringify(score));
+    
+    var initials = JSON.parse(localStorage.getItem("Initials"));
+    var scoreStore = JSON.parse(localStorage.getItem("Score"));
+
+    // If no name, cannot save score
+    if (initials == 0){
+        alert("Please enter your name");
+        return;
+    }
+
+    highScoreText.textContent = initials + " with a score of "+ scoreStore + " out of " + quizQuestions.length;
+    showScore();
+}
+
+// Once you store info, then you can see the scores page!
 function showScore (){
     introduction.setAttribute("class", "hide");
     quizEl.setAttribute("class", "hide");
@@ -168,15 +186,4 @@ function showScore (){
     resultsElement.setAttribute("class", "hide");
     endBtn.setAttribute("class", "hide");
     highScores.removeAttribute("class", "hide");
-}
-
-function store() {
-    localStorage.setItem("Initials", JSON.stringify(initialsEl.value));
-    localStorage.setItem("Score", JSON.stringify(score));
-    
-    var initials = JSON.parse(localStorage.getItem("Initials")) || [];
-    var scoreStore = JSON.parse(localStorage.getItem("Score")) || []
-
-    highScoreText.textContent = initials + " with a score of "+ scoreStore + " out of " + quizQuestions.length;
-    showScore();
 }
