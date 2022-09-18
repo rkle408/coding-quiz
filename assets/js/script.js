@@ -26,7 +26,8 @@ var currentIndex = 0;
 
 var resultsElement = document.querySelector('#results');
 var highScores = document.querySelector('#high-scores');
-var score = document.querySelector("#score");
+var scoreEl = document.querySelector("#score");
+var score = 0;
 
 // Quiz Questions
 var quizQuestions = [
@@ -112,11 +113,13 @@ function choiceClickHandler (event) {
     // want to check
     if (quizQuestions[currentIndex].correctIndex == event.target.dataset.index){
         console.log('correct answer');
+        score++;
     } else {
         console.log('wrong choice');
         // When get to answer choice: Need to subtract 10 seconds if wrong answer!!!
         timerCount -=10;
         // Check remaining time, if it is <= 0, then end the quiz 
+
     if (timerCount <= 0) {
         endQuiz();
         return;
@@ -128,10 +131,6 @@ function choiceClickHandler (event) {
     return;
     }
     displayQuestion();
-
-    if (quizQuestions[currentIndex] = 0) {
-        endQuiz();
-    }
 }
 
 // Make a separate function to end quiz since there are many different cases where we would want to end the quiz
@@ -142,6 +141,8 @@ function endQuiz (){
     timerEl.textContent = "Your time is up!"
     resultsElement.removeAttribute("class", "hide");
         // display and store high scores
+    //console.log(score);
+    scoreEl.textContent = score;
 }
 
 // When clicking start button, quiz and timer will start:
