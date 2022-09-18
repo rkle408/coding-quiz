@@ -28,6 +28,8 @@ var resultsElement = document.querySelector('#results');
 var highScores = document.querySelector('#high-scores');
 var scoreEl = document.querySelector("#score");
 var score = 0;
+var initialsEl = document.querySelector("#initials");
+var submitBtn = document.querySelector(".submit-button");
 
 // Quiz Questions
 var quizQuestions = [
@@ -133,6 +135,19 @@ function choiceClickHandler (event) {
     displayQuestion();
 }
 
+var initials = localStorage.getItem("Initials");
+var scoreStore = localStorage.getItem("Score");
+
+submitBtn.addEventListener("click", function(){
+    localStorage.setItem("Initials", initialsEl.value);
+    localStorage.setItem("Score", score);
+
+    var scoreList = document.createElement("li");
+    scoreList.textContent = initials + " = " + scoreStore;
+    highScores.append(scoreList);
+})
+
+
 // Make a separate function to end quiz since there are many different cases where we would want to end the quiz
 function endQuiz (){
     introduction.setAttribute("class", "hide");
@@ -140,7 +155,7 @@ function endQuiz (){
     clearInterval(timerInterval);
     timerEl.textContent = "Your time is up!"
     resultsElement.removeAttribute("class", "hide");
-        // display and store high scores
+    // Display and store high scores
     //console.log(score);
     scoreEl.textContent = score;
 }
