@@ -72,7 +72,7 @@ function startTimer() {
         if(timerCount <= 0) {
         clearInterval(timerInterval);
         introduction.setAttribute("class", "hide");
-        quizElement.setAttribute("class", "hide");
+        quizEl.setAttribute("class", "hide");
         answerChoiceElement.setAttribute("class", "hide");
         resultsElement.removeAttribute("class", "hide");
         }
@@ -89,12 +89,12 @@ function startQuiz() {
     console.log(displayingQuestion);
 
     // With this for-loop, can have as many options without adding more code for more buttons
-    for (var i = 0; i < displayingQuestion["answerChoice"].length; i++) {
-        var userAnswer = displayingQuestion["answerChoice"][i];
+    for (var index = 0; index < displayingQuestion["answerChoice"].length; index++) {
+        var userAnswer = displayingQuestion["answerChoice"][index];
         var userAnswerBtn = document.createElement("button");
         userAnswerBtn.setAttribute("class", "answer");
-        userAnswerBtn.setAttribute("data-index". index);
-        userAnswerBtn.textContent = `${i + 1}. ${userAnswer}`
+        userAnswerBtn.setAttribute("data-index", index);
+        userAnswerBtn.textContent = `${index + 1}. ${userAnswer}`
         userAnswerBtn.addEventListener('click', choiceClickHandler)
         answers.append(userAnswerBtn);
         };
