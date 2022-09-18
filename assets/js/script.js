@@ -11,7 +11,7 @@
 // When timer ends, then quiz ends
 // When quiz ends, results need to appear
 
-var timerEl = document.querySelector(".timer");
+var timerEl = document.querySelector("#timer");
 var timerCount = 60;
 var timer;
 var timerInterval = null;
@@ -26,7 +26,6 @@ var currentIndex = 0;
 
 var resultsElement = document.querySelector('#results');
 var highScores = document.querySelector('#high-scores');
-var highScoresBtn = document.querySelector('#highScoreButton');
 var highScoreText =document.querySelector('#high-score-text');
 var scoreEl = document.querySelector("#score");
 var score = 0;
@@ -142,21 +141,6 @@ function choiceClickHandler (event) {
 }
 
 
-
-submitBtn.addEventListener("click", function(){
-    localStorage.setItem("Initials", initialsEl.value);
-    localStorage.setItem("Score", score);
-    
-    var initials = localStorage.getItem("Initials");
-    var scoreStore = localStorage.getItem("Score");
-    
-    console.log(initials);
-
-    highScoreText.textContent = "Initials: "+ initials + " with a score of "+ scoreStore;
-})
-
-
-
 // Make a separate function to end quiz since there are many different cases where we would want to end the quiz
 function endQuiz (){
     introduction.setAttribute("class", "hide");
@@ -173,14 +157,26 @@ function endQuiz (){
 // When clicking start button, quiz and timer will start:
 startButton.addEventListener("click", startQuiz);
 endBtn.addEventListener("click", endQuiz);
-highScoresBtn.addEventListener("click", showScore);
+//highScoresBtn.addEventListener("click", showScore);
+submitBtn.addEventListener("click", store);
 
 function showScore (){
     introduction.setAttribute("class", "hide");
     quizEl.setAttribute("class", "hide");
     clearInterval(timerInterval);
-    timerEl.textContent = "Your time is up!"
+    timerEl.setAttribute("class", "hide");
     resultsElement.setAttribute("class", "hide");
     endBtn.setAttribute("class", "hide");
     highScores.removeAttribute("class", "hide");
+}
+
+function store() {
+    localStorage.setItem("Initials", JSON.stringify(initialsEl.value));
+    localStorage.setItem("Score", JSON.stringify(score));
+    
+    var initials = JSON.parse(localStorage.getItem("Initials")) || [];
+    var scoreStore = JSON.parse(localStorage.getItem("Score")) || []
+
+    highScoreText.textContent = initials + " with a score of "+ scoreStore + " out of " + quizQuestions.length;
+    showScore();
 }
